@@ -157,11 +157,12 @@ in hself: hsuper: {
 
     # aeson does not yet compile with newer primitive
     # in hackage/nixpkgs.
-    aeson = hself.callCabal2nix "aeson"
+    aeson = hlib.dontCheck (hself.callCabal2nix "aeson"
       (fetchFromGitHub {
         owner = "bos";
         repo = "aeson";
         rev = "bc4fa60ece9aa54a43224343fa9d3b2b531164c0";
         sha256 = "0i07swd3kab8kdxdb3allxffbalzn9p93v1wnpwz4q4c03q9cig0";
-      }) {};
+      }) {});
+
 }
