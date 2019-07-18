@@ -138,6 +138,14 @@ in hself: hsuper: {
       sha256 = "0p1wc8rrl2ff209szawxiqi43yyma7i74mwp7fhyqnji5q3ayb79";
     }) {};
 
+  primitive-sort = hself.callCabal2nix "primitive-sort"
+    (fetchFromGitHub {
+      owner = "andrewthad";
+      repo = "primitive-sort";
+      rev = "b21cafa7f6d27fb350a60a729a078783dca261fe";
+      sha256 = "1h0rh5jzrdbbsbawllghpjz4x113nimxnd3mv1hai3mimg1bl7ah";
+    }) {};
+
     # needed by newer aeson
     time-compat = hself.callCabal2nix "time-compat"
       (fetchFromGitHub {
