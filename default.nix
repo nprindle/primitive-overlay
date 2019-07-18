@@ -138,4 +138,22 @@ in hself: hsuper: {
       sha256 = "0p1wc8rrl2ff209szawxiqi43yyma7i74mwp7fhyqnji5q3ayb79";
     }) {};
 
+    # needed by newer aeson
+    time-compat = hself.callCabal2nix "time-compat"
+      (fetchFromGitHub {
+        owner = "phadej";
+        repo = "time-compat";
+        rev = "b929f56b388454a81f95d3739133a8716791ee73";
+        sha256 = "1i79kvixvf5w9hraawjwapnymj2kvrwp8yhncsgpf6bh5c5j760i";
+      }) {};
+
+    # aeson does not yet compile with newer primitive
+    # in hackage/nixpkgs.
+    aeson = hself.callCabal2nix "aeson"
+      (fetchFromGitHub {
+        owner = "bos";
+        repo = "aeson";
+        rev = "bc4fa60ece9aa54a43224343fa9d3b2b531164c0";
+        sha256 = "0i07swd3kab8kdxdb3allxffbalzn9p93v1wnpwz4q4c03q9cig0";
+      }) {};
 }
