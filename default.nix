@@ -147,13 +147,13 @@ in hself: hsuper: {
     }) {};
 
     # needed by newer aeson
-    time-compat = hself.callCabal2nix "time-compat"
+    time-compat = hlib.dontCheck (hself.callCabal2nix "time-compat"
       (fetchFromGitHub {
         owner = "phadej";
         repo = "time-compat";
         rev = "b929f56b388454a81f95d3739133a8716791ee73";
         sha256 = "1i79kvixvf5w9hraawjwapnymj2kvrwp8yhncsgpf6bh5c5j760i";
-      }) {};
+      }) {});
 
     # aeson does not yet compile with newer primitive
     # in hackage/nixpkgs.
