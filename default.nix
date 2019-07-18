@@ -129,4 +129,13 @@ in hself: hsuper: {
       rev = "2ce56a0bf67fba0d1c3fed662e845f3c5628fb7f";
       sha256 = "14krlvamxqd9zl2xjz5jzsc48755r87hbkpfw7fbzh8w92sj8nyz";
     }) {};
+
+   primitive-containers = hself.callCabal2nix "primitive-containers"
+    (fetchFromGitHub {
+      owner = "andrewthad";
+      repo = "primitive-containers";
+      rev = "3d46b5518c3c97c7ca60234d50d8a1517671fbd6";
+      sha256 = "0p1wc8rrl2ff209szawxiqi43yyma7i74mwp7fhyqnji5q3ayb79";
+    }) {};
+
 }
