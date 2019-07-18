@@ -121,4 +121,12 @@ in hself: hsuper: {
       rev = "39277125cc183480de21ce06d6beacd1eeead68a";
       sha256 = "0xyhxv471adsjrxhci4swn0faw5532ddvsria4g8mba47wrh2r46";
     }) {};
+
+  byteslice = hself.callCabal2nix "byteslice"
+    (fetchFromGitHub {
+      owner = "andrewthad";
+      repo = "byteslice";
+      rev = "2ce56a0bf67fba0d1c3fed662e845f3c5628fb7f";
+      sha256 = "14krlvamxqd9zl2xjz5jzsc48755r87hbkpfw7fbzh8w92sj8nyz";
+    }) {};
 }
