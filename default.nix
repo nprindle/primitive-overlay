@@ -134,8 +134,8 @@ in hself: hsuper: {
     (fetchFromGitHub {
       owner = "andrewthad";
       repo = "primitive-containers";
-      rev = "3d46b5518c3c97c7ca60234d50d8a1517671fbd6";
-      sha256 = "0p1wc8rrl2ff209szawxiqi43yyma7i74mwp7fhyqnji5q3ayb79";
+      rev = "455355ce75a3af2b840fbd3a3a397227c58c25e9";
+      sha256 = "0jrbv2llkxmzfggvkb45xfy5p1g9vxdbyi7x33jg6abkcp9d53s0";
     }) {};
 
   primitive-sort = hself.callCabal2nix "primitive-sort"
@@ -146,23 +146,30 @@ in hself: hsuper: {
       sha256 = "1h0rh5jzrdbbsbawllghpjz4x113nimxnd3mv1hai3mimg1bl7ah";
     }) {};
 
-    # needed by newer aeson
-    time-compat = hlib.dontCheck (hself.callCabal2nix "time-compat"
-      (fetchFromGitHub {
-        owner = "phadej";
-        repo = "time-compat";
-        rev = "b929f56b388454a81f95d3739133a8716791ee73";
-        sha256 = "1i79kvixvf5w9hraawjwapnymj2kvrwp8yhncsgpf6bh5c5j760i";
-      }) {});
+  # needed by newer aeson
+  time-compat = hlib.dontCheck (hself.callCabal2nix "time-compat"
+    (fetchFromGitHub {
+      owner = "phadej";
+      repo = "time-compat";
+      rev = "b929f56b388454a81f95d3739133a8716791ee73";
+      sha256 = "1i79kvixvf5w9hraawjwapnymj2kvrwp8yhncsgpf6bh5c5j760i";
+    }) {});
 
-    # aeson does not yet compile with newer primitive
-    # in hackage/nixpkgs.
-    aeson = hlib.dontCheck (hself.callCabal2nix "aeson"
-      (fetchFromGitHub {
-        owner = "bos";
-        repo = "aeson";
-        rev = "bc4fa60ece9aa54a43224343fa9d3b2b531164c0";
-        sha256 = "0i07swd3kab8kdxdb3allxffbalzn9p93v1wnpwz4q4c03q9cig0";
-      }) {});
+  # aeson does not yet compile with newer primitive
+  # in hackage/nixpkgs.
+  aeson = hlib.dontCheck (hself.callCabal2nix "aeson"
+    (fetchFromGitHub {
+      owner = "bos";
+      repo = "aeson";
+      rev = "bc4fa60ece9aa54a43224343fa9d3b2b531164c0";
+      sha256 = "0i07swd3kab8kdxdb3allxffbalzn9p93v1wnpwz4q4c03q9cig0";
+    }) {});
 
+  automata = hself.callCabal2nix "automata"
+    (fetchFromGitHub {
+      owner = "andrewthad";
+      repo = "automata";
+      rev = "92e7442849a208b9a78e27467c611f6a25cf6215";
+      sha256 = "0cx0ljbv3gck13w890icapvma1l5hypckby49vg0l8ml3hi2yy1g";
+    }) {};
 }
