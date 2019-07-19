@@ -165,11 +165,11 @@ in hself: hsuper: {
       sha256 = "0i07swd3kab8kdxdb3allxffbalzn9p93v1wnpwz4q4c03q9cig0";
     }) {});
 
-  automata = hself.callCabal2nix "automata"
+  automata = hlib.dontHaddock (hself.callCabal2nix "automata"
     (fetchFromGitHub {
       owner = "andrewthad";
       repo = "automata";
       rev = "92e7442849a208b9a78e27467c611f6a25cf6215";
       sha256 = "0cx0ljbv3gck13w890icapvma1l5hypckby49vg0l8ml3hi2yy1g";
-    }) {};
+    }) {});
 }
