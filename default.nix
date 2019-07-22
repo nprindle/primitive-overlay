@@ -9,7 +9,8 @@ let
   };
 in hself: hsuper: {
   primitive = hlib.dontCheck (hself.callCabal2nix "primitive"
-    (primPkg {
+    (fetchFromGitHub {
+      owner = "haskell";
       repo = "primitive";
       rev = "c446914899b1ce5c32614df2833b807971bb5c62";
       sha256 = "150rqd6vpw6g13hg3wghyvqgnpl22asdls2jan5gw2ba3yr8cplj";
