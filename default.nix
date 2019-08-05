@@ -127,8 +127,8 @@ in hself: hsuper: {
     (fetchFromGitHub {
       owner = "andrewthad";
       repo = "byteslice";
-      rev = "2ce56a0bf67fba0d1c3fed662e845f3c5628fb7f";
-      sha256 = "14krlvamxqd9zl2xjz5jzsc48755r87hbkpfw7fbzh8w92sj8nyz";
+      rev = "12132988ca38382bfc128b77a5477bbb588df5a9";
+      sha256 = "03bcvjmp6yzpzphkpshl3d8w4rq78avfv4nq8cp73i8xf1sy5i8l";
     }) {};
 
    primitive-containers = hself.callCabal2nix "primitive-containers"
