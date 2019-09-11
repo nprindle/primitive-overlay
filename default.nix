@@ -132,6 +132,14 @@ in hself: hsuper: {
       sha256 = "03bcvjmp6yzpzphkpshl3d8w4rq78avfv4nq8cp73i8xf1sy5i8l";
     }) {};
 
+  run-st = hself.callCabal2nix "run-st"
+    (fetchFromGitHub {
+      owner = "andrewthad";
+      repo = "run-st";
+      rev = "0d5daf3330d490e294b1d104ca29886372cb5001";
+      sha256 = "0mhk60i45lsr0kb4n1f8f4hs0ifcsdn2hygh2s0lgfxlrc12hjzv";
+    }) {};
+
    primitive-containers = hself.callCabal2nix "primitive-containers"
     (fetchFromGitHub {
       owner = "andrewthad";
