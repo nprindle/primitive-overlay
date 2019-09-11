@@ -3,183 +3,200 @@
 , ...
 }:
 
-let
-  primPkg = { repo, rev, sha256 }: fetchFromGitHub {
-    inherit repo rev sha256;
-    owner = "haskell-primitive";
+hself: hsuper: {
+  primPkg = { repo, rev, sha256, apply ? [] }: hsuper.c2n {
+    name = repo;
+    rawPath = fetchFromGitHub {
+      inherit repo rev sha256;
+      owner = "haskell-primitive";
+    };
+    inherit apply;
   };
-in hself: hsuper: {
-  primitive = hlib.dontCheck (hself.callCabal2nix "primitive"
-    (fetchFromGitHub {
+
+  primitive = hsuper.c2n {
+    name = "primitive";
+    rawPath = fetchFromGitHub {
       owner = "haskell";
       repo = "primitive";
       rev = "c446914899b1ce5c32614df2833b807971bb5c62";
       sha256 = "150rqd6vpw6g13hg3wghyvqgnpl22asdls2jan5gw2ba3yr8cplj";
-    }) {});
+    };
+    apply = [ hlib.dontCheck ];
+  };
 
-  primitive-convenience = hself.callCabal2nix "primitive-convenience"
-    (primPkg {
-      repo = "primitive-convenience";
-      rev = "15f302eb224c17fea90cabe35f13ccffba7e80c6";
-      sha256 = "1aswcr1ql2hq0hp1rxvxv5mj8y62xg98x4y0xnd0wcmnhj567iqf";
-    }) {};
+  primitive-convenience = primPkg {
+    repo = "primitive-convenience";
+    rev = "15f302eb224c17fea90cabe35f13ccffba7e80c6";
+    sha256 = "1aswcr1ql2hq0hp1rxvxv5mj8y62xg98x4y0xnd0wcmnhj567iqf";
+  };
 
-  primitive-addr = hself.callCabal2nix "primitive-addr"
-    (primPkg {
-      repo = "primitive-addr";
-      rev = "ecd2bd42d9a44e737102f54c58215143f1b40495";
-      sha256 = "19qd9p625n87ww5vhl3qlxx9lb3l7pnv4firal18zgmhbr2wnayk";
-    }) {};
+  primitive-addr = primPkg {
+    repo = "primitive-addr";
+    rev = "ecd2bd42d9a44e737102f54c58215143f1b40495";
+    sha256 = "19qd9p625n87ww5vhl3qlxx9lb3l7pnv4firal18zgmhbr2wnayk";
+  };
 
-  primitive-slice = hself.callCabal2nix "primitive-slice"
-    (primPkg {
-      repo = "primitive-slice";
-      rev = "554f1f0cf00d0c445b4210ce8367be5269e6ce64";
-      sha256 = "0n23c1cwrlj682yvywlfkhj1qg7i5399mxdlx5q7lwrq1bywd57p";
-    }) {};
+  primitive-slice = primPkg {
+    repo = "primitive-slice";
+    rev = "554f1f0cf00d0c445b4210ce8367be5269e6ce64";
+    sha256 = "0n23c1cwrlj682yvywlfkhj1qg7i5399mxdlx5q7lwrq1bywd57p";
+  };
 
-  primitive-pinned = hself.callCabal2nix "primitive-pinned"
-    (primPkg {
-      repo = "primitive-pinned";
-      rev = "47d12ab2adb6fe2806063267d865074beb394c7c";
-      sha256 = "049nnif8papzmb6dhy7l1rdwnynnm6mhws792f5d1zb60f7gn20v";
-    }) {};
+  primitive-pinned = primPkg {
+    repo = "primitive-pinned";
+    rev = "47d12ab2adb6fe2806063267d865074beb394c7c";
+    sha256 = "049nnif8papzmb6dhy7l1rdwnynnm6mhws792f5d1zb60f7gn20v";
+  };
 
-  primitive-unlifted = hself.callCabal2nix "primitive-unlifted"
-    (primPkg {
-      repo = "primitive-unlifted";
-      rev = "3a4da0331e18b3296d0e339c1192afef7bdf52bc";
-      sha256 = "0sq2yhrrm21n0jcy5qcix5gr1wlxghfcqd5c4wrqzvsl1wz5ml0f";
-    }) {};
+  primitive-unlifted = primPkg {
+    repo = "primitive-unlifted";
+    rev = "3a4da0331e18b3296d0e339c1192afef7bdf52bc";
+    sha256 = "0sq2yhrrm21n0jcy5qcix5gr1wlxghfcqd5c4wrqzvsl1wz5ml0f";
+  };
 
-  prim-instances = hself.callCabal2nix "prim-instances"
-    (primPkg {
-      repo = "prim-instances";
-      rev = "4403383a3b70c23baec4fa2e7574e9f6f5e39346";
-      sha256 = "0fpphkrl7jbjvcr67am37q7hm77k1sgr47h8vhcqwjy0bdv57y8l";
-    }) {};
+  prim-instances = primPkg {
+    repo = "prim-instances";
+    rev = "4403383a3b70c23baec4fa2e7574e9f6f5e39346";
+    sha256 = "0fpphkrl7jbjvcr67am37q7hm77k1sgr47h8vhcqwjy0bdv57y8l";
+  };
 
-  primitive-unaligned = hself.callCabal2nix "primitive-unaligned"
-    (primPkg {
-      repo = "primitive-unaligned";
-      rev = "0d4fe61f79f37341ed2ccdb58d66927ba3cb9ce3";
-      sha256 = "1800p1j87p3nirkr8n5aw0k9nyarv34ck4i2hcbyaayxqlr034ma";
-    }) {};
+  primitive-unaligned = primPkg {
+    repo = "primitive-unaligned";
+    rev = "0d4fe61f79f37341ed2ccdb58d66927ba3cb9ce3";
+    sha256 = "1800p1j87p3nirkr8n5aw0k9nyarv34ck4i2hcbyaayxqlr034ma";
+  };
 
-  primitive-foreign = hself.callCabal2nix "primitive-foreign"
-    (primPkg {
-      repo = "primitive-foreign";
-      rev = "17ca38ae60eb9e0d42fcad3633fc97f741d9019c";
-      sha256 = "02sy8l9apkap2y2dbd2xwaayylvkk7xdhsh1ihh4shzhiz48c66s";
-    }) {};
+  primitive-foreign = primPkg {
+    repo = "primitive-foreign";
+    rev = "17ca38ae60eb9e0d42fcad3633fc97f741d9019c";
+    sha256 = "02sy8l9apkap2y2dbd2xwaayylvkk7xdhsh1ihh4shzhiz48c66s";
+  };
 
-  primitive-checked = hself.callCabal2nix "primitive-checked"
-    (primPkg {
-      repo = "primitive-checked";
-      rev = "d136c5223be331c21c51769eb0be0c85bc6feee6";
-      sha256 = "179knm68zl0ajj744j7g8n8fxd6gjwmv5128xmh9ci7hg6diwarm";
-    }) {};
+  primitive-checked = primPkg {
+    repo = "primitive-checked";
+    rev = "d136c5223be331c21c51769eb0be0c85bc6feee6";
+    sha256 = "179knm68zl0ajj744j7g8n8fxd6gjwmv5128xmh9ci7hg6diwarm";
+  };
 
-  primitive-maybe = hself.callCabal2nix "primitive-maybe"
-    (primPkg {
-      repo = "primitive-maybe";
-      rev = "873f7a8b9f28236dc371186987fb21da1526f58d";
-      sha256 = "1syf2m3i4zgvswqhgsf6mxqnkggxq19vd7bwaza3d1bcjvf6bif9";
-    }) {};
+  primitive-maybe = primPkg {
+    repo = "primitive-maybe";
+    rev = "873f7a8b9f28236dc371186987fb21da1526f58d";
+    sha256 = "1syf2m3i4zgvswqhgsf6mxqnkggxq19vd7bwaza3d1bcjvf6bif9";
+  };
 
-  primitive-stablename = hself.callCabal2nix "primitive-stablename"
-    (primPkg {
-      repo = "primitive-stablename";
-      rev = "e4b5e7cd614e373952f8198596df42de4c61b3b6";
-      sha256 = "0k2i1bg8jvpqal0p2q7hki82kxzvlbfm2sy5zplpyw65i16b7b9x";
-    }) {};
+  primitive-stablename = primPkg {
+    repo = "primitive-stablename";
+    rev = "e4b5e7cd614e373952f8198596df42de4c61b3b6";
+    sha256 = "0k2i1bg8jvpqal0p2q7hki82kxzvlbfm2sy5zplpyw65i16b7b9x";
+  };
 
-  primitive-offset = hself.callCabal2nix "primitive-offset"
-    (primPkg {
-      repo = "primitive-offset";
-      rev = "dfc7b35285731b8589023abf398d45cdcf9138ab";
-      sha256 = "0jfn42xav31zs9yd5841qy76qrc25cbx6lpgfh5av3v6dsxyrxb7";
-    }) {};
+  primitive-offset = primPkg {
+    repo = "primitive-offset";
+    rev = "dfc7b35285731b8589023abf398d45cdcf9138ab";
+    sha256 = "0jfn42xav31zs9yd5841qy76qrc25cbx6lpgfh5av3v6dsxyrxb7";
+  };
 
-  primitive-atomic = hself.callCabal2nix "primitive-atomic"
-    (primPkg {
-      repo = "primitive-atomic";
-      rev = "4b9ec2f26ff3252f000482342d3fec3402f48d0b";
-      sha256 = "1hc6rqjjc26f6pm8y2c7cay6fgaffmbal9vx2g110vw10pndrw80";
-    }) {};
+  primitive-atomic = primPkg {
+    repo = "primitive-atomic";
+    rev = "4b9ec2f26ff3252f000482342d3fec3402f48d0b";
+    sha256 = "1hc6rqjjc26f6pm8y2c7cay6fgaffmbal9vx2g110vw10pndrw80";
+  };
 
   # not yet on haskell-primitive
-  contiguous = hself.callCabal2nix "contiguous"
-    (fetchFromGitHub {
+  contiguous = hsuper.c2n {
+    name = "contiguous";
+    rawPath = fetchFromGitHub {
       owner = "andrewthad";
       repo = "contiguous";
-      rev = "1abf1d8dc08c1a1e106fed6ef7aa5de5eee5e0ad";
-      sha256 = "143vclqx2mi2xasv7vf0mb40g287kd9ygd75czydqvlwb2h5128y";
-    }) {};
+      rev = "954f5072328e9a82fc7766a4fbd52853338e332f";
+      sha256 = "1k93yw07yjqsyq145h00h5708ng9p9ygdvvablgvdff1gwnqz8di";
+    };
+    apply = [ ];
+  };
 
-  contiguous-fft = hself.callCabal2nix "contiguous-fft"
-    (primPkg {
-      repo = "contiguous-fft";
-      rev = "39277125cc183480de21ce06d6beacd1eeead68a";
-      sha256 = "0xyhxv471adsjrxhci4swn0faw5532ddvsria4g8mba47wrh2r46";
-    }) {};
+  contiguous-fft = primPkg {
+    repo = "contiguous-fft";
+    rev = "39277125cc183480de21ce06d6beacd1eeead68a";
+    sha256 = "0xyhxv471adsjrxhci4swn0faw5532ddvsria4g8mba47wrh2r46";
+  };
 
-  byteslice = hself.callCabal2nix "byteslice"
-    (fetchFromGitHub {
+  byteslice = hsuper.c2n {
+    name = "byteslice";
+    rawPath = fetchFromGitHub {
       owner = "andrewthad";
       repo = "byteslice";
-      rev = "12132988ca38382bfc128b77a5477bbb588df5a9";
-      sha256 = "03bcvjmp6yzpzphkpshl3d8w4rq78avfv4nq8cp73i8xf1sy5i8l";
-    }) {};
+      rev = "489b0d65fe2cdbc61802ce5c8c2df3fc978dd255";
+      sha256 = "1s3n11mhyicdmcj7fky3vi5w1kpfa83hy13hggjywq1zvaskwr16";
+    };
+    apply = [ ];
+  };
 
-  run-st = hself.callCabal2nix "run-st"
-    (fetchFromGitHub {
+  run-st = hsuper.c2n {
+    name = "run-st";
+    rawPath = fetchFromGitHub {
       owner = "andrewthad";
       repo = "run-st";
       rev = "0d5daf3330d490e294b1d104ca29886372cb5001";
       sha256 = "0mhk60i45lsr0kb4n1f8f4hs0ifcsdn2hygh2s0lgfxlrc12hjzv";
-    }) {};
+    };
+    apply = [ ];
+  };
 
-   primitive-containers = hself.callCabal2nix "primitive-containers"
-    (fetchFromGitHub {
+  primitive-containers = hsuper.c2n {
+    name = "primitive-containers";
+    rawPath = fetchFromGitHub {
       owner = "andrewthad";
       repo = "primitive-containers";
-      rev = "455355ce75a3af2b840fbd3a3a397227c58c25e9";
-      sha256 = "0jrbv2llkxmzfggvkb45xfy5p1g9vxdbyi7x33jg6abkcp9d53s0";
-    }) {};
+      rev = "e415b72a5fd911f2ca838a080ddf2896c73b2e6e";
+      sha256 = "163xvhdkq9hdxqv5ck6vdc0l5zbrcarc25f9z5wcx5bi8alsi4rf";
+    };
+    apply = [ ];
+  };
 
-  primitive-sort = hself.callCabal2nix "primitive-sort"
-    (fetchFromGitHub {
+  primitive-sort = hsuper.c2n {
+    name = "primitive-sort";
+    rawPath = fetchFromGitHub {
       owner = "andrewthad";
       repo = "primitive-sort";
       rev = "b21cafa7f6d27fb350a60a729a078783dca261fe";
       sha256 = "1h0rh5jzrdbbsbawllghpjz4x113nimxnd3mv1hai3mimg1bl7ah";
-    }) {};
+    };
+    apply = [ ];
+  };
 
   # needed by newer aeson
-  time-compat = hlib.dontCheck (hself.callCabal2nix "time-compat"
-    (fetchFromGitHub {
+  time-compat = hsuper.c2n {
+    name = "time-compat";
+    rawPath = fetchFromGitHub {
       owner = "phadej";
       repo = "time-compat";
       rev = "b929f56b388454a81f95d3739133a8716791ee73";
       sha256 = "1i79kvixvf5w9hraawjwapnymj2kvrwp8yhncsgpf6bh5c5j760i";
-    }) {});
+    };
+    apply = [ hlib.dontCheck ];
+  };
 
   # aeson does not yet compile with newer primitive
   # in hackage/nixpkgs.
-  aeson = hlib.dontCheck (hself.callCabal2nix "aeson"
-    (fetchFromGitHub {
+  aeson = hsuper.c2n {
+    name = "aeson";
+    rawPath = fetchFromGitHub {
       owner = "bos";
       repo = "aeson";
       rev = "bc4fa60ece9aa54a43224343fa9d3b2b531164c0";
       sha256 = "0i07swd3kab8kdxdb3allxffbalzn9p93v1wnpwz4q4c03q9cig0";
-    }) {});
+    };
+    apply = [ hlib.dontCheck ];
+  };
 
-  automata = hlib.dontHaddock (hself.callCabal2nix "automata"
-    (fetchFromGitHub {
+  automata = hsuper.c2n {
+    name = "automata";
+    rawPath = fetchFromGitHub {
       owner = "andrewthad";
       repo = "automata";
       rev = "92e7442849a208b9a78e27467c611f6a25cf6215";
       sha256 = "0cx0ljbv3gck13w890icapvma1l5hypckby49vg0l8ml3hi2yy1g";
-    }) {});
+    };
+    apply = [ hlib.dontHaddock ];
+  };
 }
