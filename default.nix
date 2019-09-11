@@ -19,7 +19,7 @@ in hself: hsuper: {
 
   primitive-convenience = hself.callCabal2nix "primitive-convenience"
     (primPkg {
-      repo = "primitive-convience";
+      repo = "primitive-convenience";
       rev = "15f302eb224c17fea90cabe35f13ccffba7e80c6";
       sha256 = "1aswcr1ql2hq0hp1rxvxv5mj8y62xg98x4y0xnd0wcmnhj567iqf";
     }) {};
