@@ -147,8 +147,8 @@ hself: hsuper: {
     rawPath = fetchFromGitHub {
       owner = "andrewthad";
       repo = "primitive-containers";
-      rev = "e415b72a5fd911f2ca838a080ddf2896c73b2e6e";
-      sha256 = "163xvhdkq9hdxqv5ck6vdc0l5zbrcarc25f9z5wcx5bi8alsi4rf";
+      rev = "17c1b9512b1395edeed333004696b94959b091ac";
+      sha256 = "1218h89wi9wdvkk8axckwvn6jy1yzq64hfpnskhfifpnpx08qv22";
     };
     apply = [ ];
   };
