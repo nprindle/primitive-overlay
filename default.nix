@@ -194,8 +194,8 @@ hself: hsuper: {
     rawPath = fetchFromGitHub {
       owner = "andrewthad";
       repo = "automata";
-      rev = "92e7442849a208b9a78e27467c611f6a25cf6215";
-      sha256 = "0cx0ljbv3gck13w890icapvma1l5hypckby49vg0l8ml3hi2yy1g";
+      rev = "b955ad664f3017f8dcf950f4fd3fadaa31e81007";
+      sha256 = "0x4556pnnzvw42kcpq0wv3k141x7gzrj3qv13jg2ylw7zspmmkqb";
     };
     apply = [ hlib.dontHaddock ];
   };
