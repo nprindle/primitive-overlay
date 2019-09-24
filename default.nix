@@ -158,8 +158,8 @@ hself: hsuper: {
     rawPath = fetchFromGitHub {
       owner = "andrewthad";
       repo = "primitive-sort";
-      rev = "b21cafa7f6d27fb350a60a729a078783dca261fe";
-      sha256 = "1h0rh5jzrdbbsbawllghpjz4x113nimxnd3mv1hai3mimg1bl7ah";
+      rev = "7282d08d25b4bc5861e6dfb37f6a5fa484e83aca";
+      sha256 = "1bs8shl3xrmxqxzslg8j731m96z2sl3ckfsly6afa3d5xd63fv1v";
     };
     apply = [ ];
   };
