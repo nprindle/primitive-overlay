@@ -24,79 +24,79 @@ hself: hsuper: {
     apply = [ hlib.dontCheck ];
   };
 
-  primitive-convenience = hself.primPkgs {
+  primitive-convenience = hself.primPkg {
     repo = "primitive-convenience";
     rev = "15f302eb224c17fea90cabe35f13ccffba7e80c6";
     sha256 = "1aswcr1ql2hq0hp1rxvxv5mj8y62xg98x4y0xnd0wcmnhj567iqf";
   };
 
-  primitive-addr = hself.primPkgs {
+  primitive-addr = hself.primPkg {
     repo = "primitive-addr";
     rev = "ecd2bd42d9a44e737102f54c58215143f1b40495";
     sha256 = "19qd9p625n87ww5vhl3qlxx9lb3l7pnv4firal18zgmhbr2wnayk";
   };
 
-  primitive-slice = hself.primPkgs {
+  primitive-slice = hself.primPkg {
     repo = "primitive-slice";
     rev = "554f1f0cf00d0c445b4210ce8367be5269e6ce64";
     sha256 = "0n23c1cwrlj682yvywlfkhj1qg7i5399mxdlx5q7lwrq1bywd57p";
   };
 
-  primitive-pinned = hself.primPkgs {
+  primitive-pinned = hself.primPkg {
     repo = "primitive-pinned";
     rev = "47d12ab2adb6fe2806063267d865074beb394c7c";
     sha256 = "049nnif8papzmb6dhy7l1rdwnynnm6mhws792f5d1zb60f7gn20v";
   };
 
-  primitive-unlifted = hself.primPkgs {
+  primitive-unlifted = hself.primPkg {
     repo = "primitive-unlifted";
     rev = "3a4da0331e18b3296d0e339c1192afef7bdf52bc";
     sha256 = "0sq2yhrrm21n0jcy5qcix5gr1wlxghfcqd5c4wrqzvsl1wz5ml0f";
   };
 
-  prim-instances = hself.primPkgs {
+  prim-instances = hself.primPkg {
     repo = "prim-instances";
     rev = "4403383a3b70c23baec4fa2e7574e9f6f5e39346";
     sha256 = "0fpphkrl7jbjvcr67am37q7hm77k1sgr47h8vhcqwjy0bdv57y8l";
   };
 
-  primitive-unaligned = hself.primPkgs {
+  primitive-unaligned = hself.primPkg {
     repo = "primitive-unaligned";
     rev = "0d4fe61f79f37341ed2ccdb58d66927ba3cb9ce3";
     sha256 = "1800p1j87p3nirkr8n5aw0k9nyarv34ck4i2hcbyaayxqlr034ma";
   };
 
-  primitive-foreign = hself.primPkgs {
+  primitive-foreign = hself.primPkg {
     repo = "primitive-foreign";
     rev = "17ca38ae60eb9e0d42fcad3633fc97f741d9019c";
     sha256 = "02sy8l9apkap2y2dbd2xwaayylvkk7xdhsh1ihh4shzhiz48c66s";
   };
 
-  primitive-checked = hself.primPkgs {
+  primitive-checked = hself.primPkg {
     repo = "primitive-checked";
     rev = "d136c5223be331c21c51769eb0be0c85bc6feee6";
     sha256 = "179knm68zl0ajj744j7g8n8fxd6gjwmv5128xmh9ci7hg6diwarm";
   };
 
-  primitive-maybe = hself.primPkgs {
+  primitive-maybe = hself.primPkg {
     repo = "primitive-maybe";
     rev = "873f7a8b9f28236dc371186987fb21da1526f58d";
     sha256 = "1syf2m3i4zgvswqhgsf6mxqnkggxq19vd7bwaza3d1bcjvf6bif9";
   };
 
-  primitive-stablename = hself.primPkgs {
+  primitive-stablename = hself.primPkg {
     repo = "primitive-stablename";
     rev = "e4b5e7cd614e373952f8198596df42de4c61b3b6";
     sha256 = "0k2i1bg8jvpqal0p2q7hki82kxzvlbfm2sy5zplpyw65i16b7b9x";
   };
 
-  primitive-offset = hself.primPkgs {
+  primitive-offset = hself.primPkg {
     repo = "primitive-offset";
     rev = "dfc7b35285731b8589023abf398d45cdcf9138ab";
     sha256 = "0jfn42xav31zs9yd5841qy76qrc25cbx6lpgfh5av3v6dsxyrxb7";
   };
 
-  primitive-atomic = hself.primPkgs {
+  primitive-atomic = hself.primPkg {
     repo = "primitive-atomic";
     rev = "4b9ec2f26ff3252f000482342d3fec3402f48d0b";
     sha256 = "1hc6rqjjc26f6pm8y2c7cay6fgaffmbal9vx2g110vw10pndrw80";
@@ -114,7 +114,7 @@ hself: hsuper: {
     apply = [ ];
   };
 
-  contiguous-fft = hself.primPkgs {
+  contiguous-fft = hself.primPkg {
     repo = "contiguous-fft";
     rev = "39277125cc183480de21ce06d6beacd1eeead68a";
     sha256 = "0xyhxv471adsjrxhci4swn0faw5532ddvsria4g8mba47wrh2r46";
@@ -125,8 +125,8 @@ hself: hsuper: {
     rawPath = fetchFromGitHub {
       owner = "andrewthad";
       repo = "byteslice";
-      rev = "489b0d65fe2cdbc61802ce5c8c2df3fc978dd255";
-      sha256 = "1s3n11mhyicdmcj7fky3vi5w1kpfa83hy13hggjywq1zvaskwr16";
+      rev = "b6c8924113d525ae6802eadd00416b2bfde4a701";
+      sha256 = "1ff8gi95mwr3b4c2kqs474zzq8028b7j8h2x6jvrndidb2fja9c6";
     };
     apply = [ ];
   };
@@ -198,5 +198,35 @@ hself: hsuper: {
       sha256 = "0cx0ljbv3gck13w890icapvma1l5hypckby49vg0l8ml3hi2yy1g";
     };
     apply = [ hlib.dontHaddock ];
+  };
+
+  bytesmith = hsuper.c2n {
+    name = "bytesmith";
+    rawPath = fetchFromGitHub {
+      owner = "andrewthad";
+      repo = "bytesmith";
+      rev = "04239c1a55e410263453eb950a74e22f2d866a6b";
+      sha256 = "0x3m9nw5rb72d1pk466dgrm1wlhssqm0smdz11syk0m68r5ngawp";
+    };
+  };
+
+  byte-order = hsuper.c2n {
+    name = "byte-order";
+    rawPath = fetchFromGitHub {
+      owner = "andrewthad";
+      repo = "byte-order";
+      rev = "b04e99f99b934557b980d34d47ab6caa4be3c00a";
+      sha256 = "0hr8dy0p2xv84avww0i3fnswyivbz3xjbnjngz5ilivx4lq4phjy";
+    };
+  };
+
+  text-short = hsuper.c2n {
+    name = "text-short";
+    rawPath = fetchFromGitHub {
+      owner = "haskell-hvr";
+      repo = "text-short";
+      rev = "7b6eb8a72fa5ec7ada131794872631bde8af65f8";
+      sha256 = "1rrwk4lsz6766f13mv72v9jn5ylh4igqarsnn936k74qvvjr4n9d";
+    };
   };
 }
