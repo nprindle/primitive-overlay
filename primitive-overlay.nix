@@ -125,8 +125,8 @@ hself: hsuper: {
     rawPath = fetchFromGitHub {
       owner = "andrewthad";
       repo = "byteslice";
-      rev = "b6c8924113d525ae6802eadd00416b2bfde4a701";
-      sha256 = "1ff8gi95mwr3b4c2kqs474zzq8028b7j8h2x6jvrndidb2fja9c6";
+      rev = "1dba09ec24e0f4599aea3a46561ee80cc5bbee1e";
+      sha256 = "0hica68hkwm4f3xx931h050kk8javswjk3wbk880nd50izl2624f";
     };
     apply = [ ];
   };
@@ -136,8 +136,8 @@ hself: hsuper: {
     rawPath = fetchFromGitHub {
       owner = "andrewthad";
       repo = "run-st";
-      rev = "0d5daf3330d490e294b1d104ca29886372cb5001";
-      sha256 = "0mhk60i45lsr0kb4n1f8f4hs0ifcsdn2hygh2s0lgfxlrc12hjzv";
+      rev = "74c8e13d59d936559b22798415c011a5a0d2570b";
+      sha256 = "1sy26ymbk96lhjzdsl53ggyskhwzf9gqgw3zy5zl19hympn0pdgj";
     };
     apply = [ ];
   };
@@ -147,8 +147,8 @@ hself: hsuper: {
     rawPath = fetchFromGitHub {
       owner = "andrewthad";
       repo = "primitive-containers";
-      rev = "17c1b9512b1395edeed333004696b94959b091ac";
-      sha256 = "1218h89wi9wdvkk8axckwvn6jy1yzq64hfpnskhfifpnpx08qv22";
+      rev = "55e2775df3399b447c7b44396d95956111ceb449";
+      sha256 = "03kpkff1phsla7nplb8gpyfbq899c64ahz63ygdx3ajb1a8v7jf7";
     };
     apply = [ ];
   };
@@ -194,8 +194,8 @@ hself: hsuper: {
     rawPath = fetchFromGitHub {
       owner = "andrewthad";
       repo = "automata";
-      rev = "b955ad664f3017f8dcf950f4fd3fadaa31e81007";
-      sha256 = "0x4556pnnzvw42kcpq0wv3k141x7gzrj3qv13jg2ylw7zspmmkqb";
+      rev = "435cf738da31a2094fb5848f8e1dc108048fe4fe";
+      sha256 = "1yk8nalcqfp7ah6sfwcj7z22pc7qs3rpdh5lb0j4rdxj0iq0bh7g";
     };
     apply = [ hlib.dontHaddock ];
   };
@@ -205,8 +205,8 @@ hself: hsuper: {
     rawPath = fetchFromGitHub {
       owner = "andrewthad";
       repo = "bytesmith";
-      rev = "04239c1a55e410263453eb950a74e22f2d866a6b";
-      sha256 = "0x3m9nw5rb72d1pk466dgrm1wlhssqm0smdz11syk0m68r5ngawp";
+      rev = "26e01faf491c905aa3da5c9c706547deed8a9982";
+      sha256 = "024xkzmk4y6qx5f1vsqvkfs7nkc7jxlfxbsvxwqb2z8sc3lbpd6k";
     };
   };
 
@@ -215,8 +215,8 @@ hself: hsuper: {
     rawPath = fetchFromGitHub {
       owner = "andrewthad";
       repo = "byte-order";
-      rev = "b04e99f99b934557b980d34d47ab6caa4be3c00a";
-      sha256 = "0hr8dy0p2xv84avww0i3fnswyivbz3xjbnjngz5ilivx4lq4phjy";
+      rev = "b0d80a30a14961a3d9d7fa387ea9d2cb86162713";
+      sha256 = "1gwzgmv0mikwkw3air4wfr5xd1xc1rdnf42ahfhbzi0wsar4hav4";
     };
   };
 
